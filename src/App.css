@@ -1,0 +1,27 @@
+:root {
+  --mainColor-light: #fdb6fe;
+  --mainColor-medium: #fb71fd;
+  --mainColor-dark: #fb07fe;
+
+  --whiteColor-light: #f8d8f9;
+  --whiteColor-medium: #f0cff1;
+  --whiteColor-dark: #d9c0db;
+
+  --contrastColor:#e0e2c7;
+  --darkColor:#480349;
+
+  --fontColor-primary: rgba(0, 0, 0, 0.95);
+  --fontColor-secondary: rgba(0, 0, 0, 0.65);
+  --fontColor-disabled: rgba(0, 0, 0, 0.45);
+
+  --fontSmall-little: 0.5rem;
+  --fontSmall-medium: 0.75rem;
+  --fontSmall-big: 1rem;
+
+  --fontNormal-little: 1.3rem;
+  --fontNormal-medium: 1.75rem;
+  --fontNormal-big: 2rem;
+
+  --fontLarge: 2.5rem;
+}
+
