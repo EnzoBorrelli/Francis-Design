@@ -13,7 +13,7 @@ function App() {
       <NavMenu />
       <Routes>
         <Route caseSensitive path="/" element={<Inicio />} />
-        <Route caseSensitive path="/inicio" element={<Inicio />} />
+        <Route caseSensitive path="/Inicio" element={<Inicio />} />
         <Route caseSensitive path="/Blog" element={<Blog />} />
         <Route caseSensitive path="/Catalogo" element={<Catalogo />} />
         <Route caseSensitive path="/Contacto" element={<Contacto />} />

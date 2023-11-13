@@ -24,4 +24,7 @@
 
   --fontLarge: 2.5rem;
 }
+button{
+  cursor: pointer;
+}
 
