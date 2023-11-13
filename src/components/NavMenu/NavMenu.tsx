@@ -3,7 +3,10 @@ import { NavLink } from "react-router-dom";
 import { ImHome } from "react-icons/im";
 import {CgSearch} from "react-icons/cg"
 import {RiWhatsappFill} from "react-icons/ri"
-import logo from "../../../public/logo.png"
+import {BsBookHalf} from "react-icons/bs"
+import {FaShoppingBag} from "react-icons/fa"
+
+import logo from "/logo.png"
 
 const NavMenu = () => {
   return (
@@ -30,12 +33,12 @@ const NavMenu = () => {
           </li>
           <li className="navmenu-li">
             <NavLink to="/Catalogo" className="navmenu-link">
-            <h2 className="link-h2">Catalogo</h2>
+            <h2 className="link-h2"><FaShoppingBag/></h2>
             </NavLink>
           </li>
           <li className="navmenu-li">
             <NavLink to="/Blog" className="navmenu-link">
-            <h2 className="link-h2">Blog</h2>
+            <h2 className="link-h2"><BsBookHalf/></h2>
             </NavLink>
           </li>
         </ul>

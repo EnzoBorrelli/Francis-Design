@@ -10,11 +10,15 @@
 
 */
 /* Aquí definimos las Custom properties */
+@font-face {
+  font-family: AbeatKai;
+  src: url(/abeatbyKaiRegular.otf);
+}
 :root {
   --negro: #393939;
   /* Tipografía */
-  --tipo-principal: Helvetica, Arial, sans-serif;
-  --tipo-secundaria: Verdana;
+  --tipo-principal: AbeatKai;
+  --tipo-secundaria: AbeatKai;
 }
 
 /* Las adaptamos al modo oscuro */

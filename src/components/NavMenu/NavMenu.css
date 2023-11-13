@@ -16,17 +16,24 @@
   padding: 0.5rem 3rem;
 }
 .brand-logo {
-  width: 6rem;
-  height: 8rem;
+  width: 7rem;
+  height: 9rem;
+  margin-bottom: 1.5rem;
+}
+
+@font-face {
+  font-family: ducDeBerry;
+  src: url(/DucDeBerry.otf);
 }
 .brand-name {
-  font-size: var(--fontLarge);
+  font-size: var(--fontNormal-big);
+  font-family: ducDeBerry;
 }
 /*search bar div*/
 .navmenu-searchbar {
   display: flex;
   flex-flow: row nowrap;
-  font-size: var(--fontNormal-little);
+  font-size: var(--fontSmall-big);
   justify-content: center;
 }
 .searchbar-input {
@@ -34,15 +41,20 @@
   padding: 0.5rem 1rem;
   border-radius: 1rem 0 0 1rem;
   border: 2px solid var(--darkColor);
+  width: 40rem;
 }
 .searchbar-btn {
   background-color: var(--contrastColor);
   padding: 0.5rem 1rem;
   justify-content: center;
   align-items: center;
-  border-radius: 0 1rem 1rem 0;
   border: 2px solid var(--darkColor);
+  border-radius: 0 1rem 1rem 0;
   border-left: transparent;
+}
+.searchbar-btn:active{
+ background-color: var(--darkColor);
+ color: var(--whiteColor-light);
 }
 /*nav div*/
 .navmenu-nav {
