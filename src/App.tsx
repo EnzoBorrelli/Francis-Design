@@ -5,6 +5,7 @@ import Inicio from "./components/sections/Inicio/Inicio";
 import Blog from "./components/sections/Blog/Blog";
 import Catalogo from "./components/sections/Catalogo/Catalogo";
 import Contacto from "./components/sections/Contacto/Contacto";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route caseSensitive path="/Catalogo" element={<Catalogo />} />
         <Route caseSensitive path="/Contacto" element={<Contacto />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
     </>
   );
