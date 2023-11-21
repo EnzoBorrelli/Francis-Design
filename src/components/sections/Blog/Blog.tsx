@@ -1,8 +1,9 @@
 import './Blog.css'
+import Entrada from './Entrada/Entrada'
 
 const Blog = () => {
   return (
-    <body className='blog'>Blog</body>
+    <body className='blog'><Entrada/></body>
   )
 }
 
