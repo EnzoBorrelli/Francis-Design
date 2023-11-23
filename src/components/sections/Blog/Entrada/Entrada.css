@@ -14,28 +14,37 @@
   height: 500px;
   transition: transform 0.5s;
 }
-.prevBtn {
-  color: black;
+.pageBtn {
+  border-radius: 0.5rem;
+  padding: .5rem;
+  margin: 1rem;
+  background-color: var(--contrastColor);
+  border: 2px solid var(--darkColor);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s;
 }
-.nextBtn {
-  color: black;
+.pageBtn:nth-child(odd){
+  font-size: var(--fontNormal-medium);
 }
+.pageNum{
+  font-size: var(--fontSmall-big);
+  }
 .book.Open {
   transform: translateX(50%);
 }
-.prevBtn.Open {
+.prev.Open {
   transform: translateX(-180px);
 }
-.nextBtn.Open {
+.next.Open {
   transform: translateX(180px);
 }
 .book.Closed {
   transform: translateX(100%);
 }
-.prevBtn.Closed {
+.prev.Closed {
   transform: translateX(0px);
 }
-.nextBtn.Closed {
+.next.Closed {
   transform: translateX(0px);
 }
 
@@ -48,9 +57,8 @@
   perspective: 1500px;
 }
 
-.book-cover {
-  background-color: blueviolet;
-}
+
+
 .front,
 .back {
   background-color: white;
@@ -87,7 +95,10 @@
 .back-content {
   transform: rotateY(180deg);
 }
-
+.book-cover {
+  background-color: blueviolet;
+  border-radius: 0;
+}
 /* Paper flip effect */
 .flipped .front,
 .flipped .back {
@@ -111,15 +122,4 @@
     line-height: 2;
 
 }
-/* Controller Buttons */
-#p1 {
-  z-index: 3;
-}
 
-#p2 {
-  z-index: 2;
-}
-
-#p3 {
-  z-index: 1;
-}

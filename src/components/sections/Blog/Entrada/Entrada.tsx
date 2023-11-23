@@ -1,11 +1,86 @@
 import { useEffect, useState } from "react";
 import hanary from "../../../../assets/images/hanary.jpg";
+import { RiArrowLeftSFill } from "react-icons/ri";
+import { RiArrowRightSFill } from "react-icons/ri";
 import "./Entrada.css";
 
 const Entrada = () => {
   const [count, setCount] = useState(0);
+  const [preCount, setPreCount] = useState(0);
   const [isClosed, setClosed] = useState("Open");
   const maxPages = 3;
+
+  const [indexPage1, setIndexPage1] = useState<number>(5);
+  const [indexPage2, setIndexPage2] = useState<number>(4);
+  const [indexPage3, setIndexPage3] = useState<number>(3);
+  const [indexPage4, setIndexPage4] = useState<number>(2);
+  const [indexPage5, setIndexPage5] = useState<number>(1);
+
+  //z indez baja y sube
+  function IndexAssignUp() {
+    switch (count) {
+      case 1:
+        setIndexPage1(count);
+        console.log(indexPage1);
+        break;
+
+      case 2:
+        setIndexPage2(count);
+        console.log(indexPage2);
+        break;
+
+      case 3:
+        setIndexPage3(count);
+        console.log(indexPage3);
+        break;
+
+      case 4:
+        setIndexPage4(count);
+        console.log(indexPage4);
+        break;
+
+      case 5:
+        setIndexPage5(count);
+        console.log(indexPage5);
+    }
+  }
+  function IndexAssignDown() {
+    switch (count) {
+      case 1:
+        setIndexPage1(5);
+        console.log(indexPage1);
+        break;
+
+      case 2:
+        setIndexPage2(4);
+        console.log(indexPage2);
+        break;
+
+      case 3:
+        setIndexPage3(3);
+        console.log(indexPage3);
+        break;
+
+      case 4:
+        setIndexPage4(2);
+        console.log(indexPage4);
+        break;
+
+      case 5:
+        setIndexPage5(1);
+        console.log(indexPage5);
+    }
+  }
+
+  //z index dinamico
+  useEffect(() => {
+    setPreCount(count);
+    if (count > preCount) {
+      IndexAssignUp();
+    } else if (count < preCount) IndexAssignDown();
+  }, [count, preCount]);
+
+  //limitar cambio de pagina
   useEffect(() => {
     if (count >= maxPages) {
       setCount(maxPages);
@@ -13,24 +88,32 @@ const Entrada = () => {
     } else {
       setClosed("Open");
     }
+    if (count < 0) setCount(0);
   }, [count, maxPages]);
+
+  //cambiar de pagina
   function UpCount() {
     setCount(count + 1);
   }
-  function downCount() {
+  function DownCount() {
     setCount(count - 1);
   }
   return (
     <div className="Entrada">
       <button
-        className={`prevBtn ${count >= 1 ? isClosed : ""}`}
-        onClick={UpCount}
+        className={`prev ${count >= 1 ? isClosed : ""} ${'pageBtn'}`}
+        onClick={DownCount}
       >
-        {count}
+        <h3><RiArrowLeftSFill /></h3>
+        <h3 className="pageNum">{count === maxPages ? "Final" : count === 0 ? "Inicio" : count}</h3>
       </button>
 
       <div id="book" className={`book ${count >= 1 ? isClosed : ""}`}>
-        <div id="p1" className={`${"paper"} ${count >= 1 ? "flipped" : ""}`}>
+        <div
+          id="p1"
+          style={{ zIndex: indexPage1 }}
+          className={`${"paper"} ${count >= 1 ? "flipped" : ""}`}
+        >
           <div className="front">
             <div id="f1" className="front-content book-cover">
               <h2 className="Cover-text">
@@ -44,12 +127,16 @@ const Entrada = () => {
               style={{ backgroundImage: `url(${hanary})` }}
               className="back-content page-img"
             >
-              <h2 className="page-text">hola</h2>
+              <h2 className="page-text"></h2>
             </div>
           </div>
         </div>
 
-        <div id="p2" className={`${"paper"} ${count >= 2 ? "flipped" : ""}`}>
+        <div
+          id="p2"
+          style={{ zIndex: indexPage2 }}
+          className={`${"paper"} ${count >= 2 ? "flipped" : ""}`}
+        >
           <div className="front">
             <div id="f2" className="front-content">
               <h2 className="page-text">
@@ -70,14 +157,18 @@ const Entrada = () => {
           </div>
         </div>
 
-        <div id="p3" className={`${"paper"} ${count >= 3 ? "flipped" : ""}`}>
+        <div
+          id="p3"
+          style={{ zIndex: indexPage3 }}
+          className={`${"paper"} ${count >= 3 ? "flipped" : ""}`}
+        >
           <div className="front">
             <div id="f3" className="front-content">
               <h2>Front 3</h2>
             </div>
           </div>
           <div className="back">
-            <div id="b3" className="back-content book-cover">
+            <div id="b3" className="back-content book-cover ">
               <h2>Back 3</h2>
             </div>
           </div>
@@ -85,10 +176,11 @@ const Entrada = () => {
       </div>
 
       <button
-        onClick={downCount}
-        className={`nextBtn ${count >= 1 ? isClosed : ""}`}
+        onClick={UpCount}
+        className={`next ${count >= 1 ? isClosed : ""} ${'pageBtn'}`}
       >
-        a
+        <h3><RiArrowRightSFill /></h3>
+        <h3 className="pageNum">{count === maxPages ? "Final" : count === 0 ? "Inicio" : count + 1}</h3>
       </button>
     </div>
   );
