@@ -1,4 +1,4 @@
-import './Inicio.css'
+import './Inicio.scss'
 
 const Inicio = () => {
   return (

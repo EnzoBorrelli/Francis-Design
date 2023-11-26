@@ -1,4 +1,4 @@
-import "./NavMenu.css";
+import "./NavMenu.scss";
 import { NavLink } from "react-router-dom";
 import { ImHome } from "react-icons/im";
 import {CgSearch} from "react-icons/cg"

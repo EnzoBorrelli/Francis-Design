@@ -1,4 +1,4 @@
-import "./Footer.css";
+import "./Footer.scss";
 import { ImArrowUp } from "react-icons/im";
 
 import { useEffect, useState } from "react";

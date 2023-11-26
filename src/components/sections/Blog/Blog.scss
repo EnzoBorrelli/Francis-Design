@@ -3,12 +3,14 @@
     --libreria-fondo:#5b391a;
 }
 .blog{
-    background-color: var(--whiteColor-light);
+    background-color: var(--mainColor-light);
     display: flex;
     justify-content: center;
     padding: 1rem;
 }
 .blog-entrada{
+    align-self: center;
+    z-index:1;
     opacity: 0;
     pointer-events: none;
     transition: all 0.5s;
@@ -19,7 +21,18 @@
 }
 
 .blog-libreria{
-    width: 80%;
+    max-width: 60%;
     background-color: var(--libreria-fondo);
     border: 1rem solid var(--libreria-borde);
+    margin-top: 0.5rem;
+    
+}
+.libreria-estanteria{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+    padding: .5rem;
+    padding-bottom: 0;
+    border-bottom: 1rem solid var(--libreria-borde);
 }

@@ -1,0 +1,26 @@
+.BtnEntrada{
+background-color: currentColor;
+width: 3rem;
+height: 12rem;
+display: flex;
+justify-content: center;
+align-items: center;
+border-left: 5px solid rgba(#ffffff,0.5);
+border-right: 5px solid rgba(#000000,0.3);
+transition: all 0.5s;
+
+&:hover{
+    transform: scale(1.2);
+}
+&:active{
+    filter:opacity(0);
+}
+}
+.BtnTitulo{
+    color: var(--fontColor-primary);
+    font-size: var(--fontSmall-medium);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    letter-spacing: 0.1em;
+    
+}

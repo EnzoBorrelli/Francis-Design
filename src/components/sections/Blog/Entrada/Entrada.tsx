@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import hanary from "../../../../assets/images/hanary.jpg";
 import { RiArrowLeftSFill } from "react-icons/ri";
 import { RiArrowRightSFill } from "react-icons/ri";
-import "./Entrada.css";
+import "./Entrada.scss";
 
 const Entrada = () => {
   const [count, setCount] = useState(0);
