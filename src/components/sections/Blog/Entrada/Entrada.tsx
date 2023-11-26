@@ -10,64 +10,64 @@ const Entrada = () => {
   const [isClosed, setClosed] = useState("Open");
   const maxPages = 3;
 
-  const [indexPage1, setIndexPage1] = useState<number>(5);
-  const [indexPage2, setIndexPage2] = useState<number>(4);
-  const [indexPage3, setIndexPage3] = useState<number>(3);
-  const [indexPage4, setIndexPage4] = useState<number>(2);
-  const [indexPage5, setIndexPage5] = useState<number>(1);
+  const [indexPage1, setIndexPage1] = useState<number>(500);
+  const [indexPage2, setIndexPage2] = useState<number>(400);
+  const [indexPage3, setIndexPage3] = useState<number>(300);
+  const [indexPage4, setIndexPage4] = useState<number>(200);
+  const [indexPage5, setIndexPage5] = useState<number>(100);
 
   //z indez baja y sube
   function IndexAssignUp() {
     switch (count) {
       case 1:
-        setIndexPage1(count);
+        setIndexPage1(100);
         console.log(indexPage1);
         break;
 
       case 2:
-        setIndexPage2(count);
+        setIndexPage2(200);
         console.log(indexPage2);
         break;
 
       case 3:
-        setIndexPage3(count);
+        setIndexPage3(300);
         console.log(indexPage3);
         break;
 
       case 4:
-        setIndexPage4(count);
+        setIndexPage4(400);
         console.log(indexPage4);
         break;
 
       case 5:
-        setIndexPage5(count);
+        setIndexPage5(500);
         console.log(indexPage5);
     }
   }
   function IndexAssignDown() {
     switch (count) {
       case 1:
-        setIndexPage1(5);
+        setIndexPage1(500);
         console.log(indexPage1);
         break;
 
       case 2:
-        setIndexPage2(4);
+        setIndexPage2(400);
         console.log(indexPage2);
         break;
 
       case 3:
-        setIndexPage3(3);
+        setIndexPage3(300);
         console.log(indexPage3);
         break;
 
       case 4:
-        setIndexPage4(2);
+        setIndexPage4(200);
         console.log(indexPage4);
         break;
 
       case 5:
-        setIndexPage5(1);
+        setIndexPage5(100);
         console.log(indexPage5);
     }
   }
@@ -105,7 +105,7 @@ const Entrada = () => {
         onClick={DownCount}
       >
         <h3><RiArrowLeftSFill /></h3>
-        <h3 className="pageNum">{count === maxPages ? "Final" : count === 0 ? "Inicio" : count}</h3>
+        {/*<h3 className="pageNum">{count === maxPages ? "Final" : count === 0 ? "Inicio" : count}</h3>*/}
       </button>
 
       <div id="book" className={`book ${count >= 1 ? isClosed : ""}`}>
@@ -179,8 +179,9 @@ const Entrada = () => {
         onClick={UpCount}
         className={`next ${count >= 1 ? isClosed : ""} ${'pageBtn'}`}
       >
+        
+        {/*<h3 className="pageNum">{count === maxPages ? "Final" : count === 0 ? "Inicio" : count + 1}</h3>*/}
         <h3><RiArrowRightSFill /></h3>
-        <h3 className="pageNum">{count === maxPages ? "Final" : count === 0 ? "Inicio" : count + 1}</h3>
       </button>
     </div>
   );

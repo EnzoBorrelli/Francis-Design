@@ -1,10 +1,18 @@
-import './Blog.css'
-import Entrada from './Entrada/Entrada'
+import { useState } from "react";
+import "./Blog.css";
+import Entrada from "./Entrada/Entrada";
 
 const Blog = () => {
-  return (
-    <body className='blog'><Entrada/></body>
-  )
-}
+  const[seAbrio,setSeAbrio]= useState(false);
 
-export default Blog
+  function AbrirLibro(){
+    setSeAbrio(!seAbrio);
+  }
+  return (
+    <body className="blog">
+     <div className="blog-libreria">a</div>
+    </body>
+  );
+};
+
+export default Blog;

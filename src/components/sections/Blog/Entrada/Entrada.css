@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: powderblue;
   color: var(--fontColor-primary);
 }
 
@@ -15,8 +14,10 @@
   transition: transform 0.5s;
 }
 .pageBtn {
-  border-radius: 0.5rem;
-  padding: .5rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  border-radius: 1rem;
   margin: 1rem;
   background-color: var(--contrastColor);
   border: 2px solid var(--darkColor);
@@ -24,7 +25,7 @@
   transition: transform 0.5s;
 }
 .pageBtn:nth-child(odd){
-  font-size: var(--fontNormal-medium);
+  font-size: var(--fontNormal-big);
 }
 .pageNum{
   font-size: var(--fontSmall-big);
@@ -75,7 +76,7 @@
 .front {
   z-index: 1;
   backface-visibility: hidden;
-  border-left: 3px solid powderblue;
+  border-left: 3px solid black;
 }
 
 .back {
