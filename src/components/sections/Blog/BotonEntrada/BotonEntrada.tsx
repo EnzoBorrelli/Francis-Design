@@ -8,7 +8,7 @@ interface BotonEntradaProps {
 
   const BotonEntrada: React.FC<BotonEntradaProps> = ({ Click, CoverColor, BookTitle }) => {
   return (
-    <button onClick={Click} style={{color:CoverColor}} className="BtnEntrada"><h2 className="BtnTitulo">{BookTitle}</h2></button>
+    <button onClick={Click} style={{color:CoverColor}} className="btn-entrada"><h2 className="btn-entrada-titulo">{BookTitle}</h2></button>
   )
 }
 

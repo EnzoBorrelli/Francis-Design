@@ -12,7 +12,7 @@
 /* Aquí definimos las Custom properties */
 @font-face {
   font-family: AbeatKai;
-  src: url(/abeatbyKaiRegular.otf);
+  src: url(/src/assets/fonts/abeatbyKaiRegular.otf);
 }
 :root {
   --negro: #393939;

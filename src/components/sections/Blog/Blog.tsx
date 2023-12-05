@@ -44,7 +44,7 @@ const Blog = () => {
   return (
     <body className="blog">
       <div className="blog-libreria">
-        <div className="libreria-estanteria">
+        <div className="blog-libreria-estanteria">
           {dataEntradas.entradas.map((entrada: any) => (
             <BotonEntrada key={entrada.id}
               Click={() => AbrirLibro(entrada)}

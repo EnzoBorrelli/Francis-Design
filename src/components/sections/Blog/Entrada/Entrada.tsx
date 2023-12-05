@@ -103,7 +103,7 @@ const Entrada: React.FC<{Content: any}> = ({ Content }) => {
   return (
     <div className="Entrada">
       <button
-        className={`prev ${count >= 1 ? isClosed : ""} ${"pageBtn"}`}
+        className={`prev ${count >= 1 ? isClosed : ""} ${"page-btn"}`}
         onClick={DownCount}
       >
         <h3>
@@ -239,7 +239,7 @@ const Entrada: React.FC<{Content: any}> = ({ Content }) => {
 
       <button
         onClick={UpCount}
-        className={`next ${count >= 1 ? isClosed : ""} ${"pageBtn"}`}
+        className={`next ${count >= 1 ? isClosed : ""} ${"page-btn"}`}
       >
         {/*<h3 className="pageNum">{count === maxPages ? "Final" : count === 0 ? "Inicio" : count + 1}</h3>*/}
         <h3>

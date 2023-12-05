@@ -1,38 +1,39 @@
-.footer {
-  display: flex;
-  flex-flow: row nowrap;
-  background-color: var(--whiteColor-medium);
-  padding: 1rem;
-  align-items: center;
-  justify-content: start;
-}
-.footer-h2 {
-    color: var(--fontColor-secondary);
-    font-size: var(--fontNormal-little);
-    margin: 0 3rem;
-}
-.footer-topscroll {
-  position: fixed;
-  bottom: 10px;
-  left: 20px;
-  padding: 10px 10px;
-  background-color: var(--mainColor-dark);
-  color: var(--whiteColor-light);
-  border: none;
-  border-radius: 100%;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1);
-  transition: transform 0.25s;
-  transition: opacity 0.5s ease;
-}
-.footer-topscroll.isActive{
-    opacity: 0.7;
-    pointer-events: all;
-}
-.footer-topscroll:hover{
-    opacity: 1;
-    transform: scale(1.2);
+@use "../../variables/mixins";
+@use "../../variables/colors";
+@use "../../variables/fonts";
 
+.footer {
+  @include mixins.flex(row, nowrap, center, start);
+  padding: 1rem;
+  background-color: colors.$whiteColor-medium;
+  &-h2 {
+    color: colors.$fontColor-secondary;
+    font-size: fonts.$fontNormal-little;
+    margin: 0 3rem;
+  }
+  &-topscroll {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    padding: 10px 10px;
+    background-color: colors.$mainColor-dark;
+    color: colors.$whiteColor-light;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1);
+    transition: transform 0.25s;
+    transition: opacity 0.5s ease;
+
+    &.isActive {
+      opacity: 0.7;
+      pointer-events: all;
+    }
+    &-:hover {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
 }

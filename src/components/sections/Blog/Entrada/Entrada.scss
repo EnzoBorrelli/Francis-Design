@@ -1,9 +1,13 @@
+@use "../../../../variables/colors";
+@use "../../../../variables/fonts";
+@use "../../../../variables/mixins";
+
 .Entrada {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--fontColor-primary);
+  color: colors.$fontColor-primary;
 }
 
 /* Book */
@@ -12,41 +16,56 @@
   width: 350px;
   height: 500px;
   transition: transform 0.5s;
+  &.Open {
+    transform: translateX(50%);
+  }
+  &.Closed {
+    transform: translateX(100%);
+  }
+  &-cover {
+    border-radius: 0;
+  }
 }
-.pageBtn {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  border-radius: 1rem;
-  margin: 1rem;
-  background-color: var(--contrastColor);
-  border: 2px solid var(--darkColor);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  transition: transform 0.5s;
+.page {
+  &-btn {
+    @include mixins.flex(row, wrap, center, null);
+    border-radius: 1rem;
+    margin: 1rem;
+    background-color: colors.$contrastColor;
+    border: 2px solid colors.$darkColor;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s;
+
+    &:nth-child(odd) {
+      font-size: fonts.$fontNormal-big;
+    }
+  }
+  &-img {
+    background: center/cover no-repeat;
+  }
+  &-text {
+    padding: 2rem;
+    font-size: fonts.$fontNormal-little;
+    line-height: 1.5;
+  }
 }
-.pageBtn:nth-child(odd) {
-  font-size: var(--fontNormal-big);
+
+.prev {
+  &.Open {
+    transform: translateX(-180px);
+  }
+  &.Closed {
+    transform: translateX(0px);
+  }
 }
-.pageNum {
-  font-size: var(--fontSmall-big);
-}
-.book.Open {
-  transform: translateX(50%);
-}
-.prev.Open {
-  transform: translateX(-180px);
-}
-.next.Open {
-  transform: translateX(180px);
-}
-.book.Closed {
-  transform: translateX(100%);
-}
-.prev.Closed {
-  transform: translateX(0px);
-}
-.next.Closed {
-  transform: translateX(0px);
+
+.next {
+  &.Open {
+    transform: translateX(180px);
+  }
+  &.Closed {
+    transform: translateX(0px);
+  }
 }
 
 .paper {
@@ -57,9 +76,7 @@
   left: 0;
   perspective: 1500px;
 }
-
-.front,
-.back {
+%page {
   background-color: white;
   border-radius: 0 1rem 1rem 0;
   position: absolute;
@@ -69,33 +86,32 @@
   left: 0;
   transform-origin: left;
   transition: transform 0.5s;
+
+  &-content {
+    border-radius: 0 1rem 1rem 0;
+    width: 100%;
+    height: 100%;
+    @include mixins.flex(null, null, center, center);
+  }
 }
 
 .front {
+  @extend %page;
   z-index: 1;
   backface-visibility: hidden;
   border-left: 3px solid black;
+  &-content {
+    @extend %page-content;
+  }
 }
 
 .back {
+  @extend %page;
   z-index: 0;
-}
-
-.front-content,
-.back-content {
-  border-radius: 0 1rem 1rem 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.back-content {
-  transform: rotateY(180deg);
-}
-.book-cover {
-  border-radius: 0;
+  &-content {
+    @extend %page-content;
+    transform: rotateY(180deg);
+  }
 }
 /* Paper flip effect */
 .flipped .front,
@@ -103,19 +119,11 @@
   transform: rotateY(-180deg);
 }
 
-.page-img {
-  background: center/cover no-repeat;
-}
 .reverse {
   border-radius: 1rem 0 0 1rem;
 }
-.page-text {
-  padding: 2rem;
-  font-size: var(--fontNormal-little);
-  line-height: 1.5;
-}
 .Cover-text {
-  font-size: var(--fontNormal-big);
+  font-size: fonts.$fontNormal-big;
   text-align: center;
   padding: 2rem;
   line-height: 2;

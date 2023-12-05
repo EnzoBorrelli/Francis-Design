@@ -1,109 +1,112 @@
-.navmenu {
-  background-color: var(--whiteColor-light);
-  display: flex;
-  flex-flow: column wrap;
-  width: 100%;
-  height: auto;
-  padding: 1rem;
-  color: var(--fontColor-primary);
-}
-/*brand div*/
-.navmenu-div--brand {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  height: 10rem;
-  padding: 0.5rem 3rem;
-}
-.brand-logo {
-  width: 7rem;
-  height: 9rem;
-  margin-bottom: 1.5rem;
-}
+@use "../../variables/colors";
+@use "../../variables/fonts";
+@use '../../variables/mixins';
 
 @font-face {
   font-family: ducDeBerry;
-  src: url(/DucDeBerry.otf);
-}
-.brand-name {
-  font-size: var(--fontNormal-big);
-  font-family: ducDeBerry;
-}
-/*search bar div*/
-.navmenu-searchbar {
-  display: flex;
-  flex-flow: row nowrap;
-  font-size: var(--fontSmall-big);
-  justify-content: center;
-}
-.searchbar-input {
-  background-color: var(--mainColor-light);
-  padding: 0.5rem 1rem;
-  border-radius: 1rem 0 0 1rem;
-  border: 2px solid var(--darkColor);
-  width: 50%;
-}
-.searchbar-btn {
-  background-color: var(--contrastColor);
-  padding: 0.5rem 1rem;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid var(--darkColor);
-  border-radius: 0 1rem 1rem 0;
-  border-left: transparent;
-}
-.searchbar-btn:active{
- background-color: var(--darkColor);
- color: var(--whiteColor-light);
-}
-/*nav div*/
-.navmenu-nav {
-  display: flex;
-  flex-flow: row nowrap;
-  font-size: var(--fontNormal-little);
-  justify-content: end;
-}
-.navmenu-ul {
-  display: flex;
-  flex-flow: row nowrap;
-  padding: 0 3rem;
-}
-.navmenu-li {
-  margin: 0.5rem;
-}
-.navmenu-li::after {
-  content: "";
-  display: block;
-  height: 3px;
-  background-color: var(--mainColor-dark);
-  transform: scale(0, 1);
-  transform-origin: left;
-  transition: transform 0.25s;
+  src: url(../../assets/fonts/DucDeBerry.otf);
 }
 
-.navmenu-li:hover::after {
-  transform: scale(1, 1);
+
+.navmenu {
+  background-color: colors.$whiteColor-light;
+  @include mixins.flex(column, wrap, null, null);
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  color: colors.$fontColor-primary;
+
+  /*brand div*/
+  &-brand {
+    @include mixins.flex(row, nowrap, center, null);
+    height: 10rem;
+    padding: 0.5rem 3rem;
+
+    &-logo {
+      width: 7rem;
+      height: 9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &-name {
+      font-size: fonts.$fontNormal-big;
+      font-family: ducDeBerry;
+    }
+  }
+  /*search bar div*/
+  &-searchbar {
+    @include mixins.flex(row, nowrap, null, center);
+    font-size: fonts.$fontSmall-big;
+
+    &-input {
+      background-color: colors.$mainColor-light;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem 0 0 1rem;
+      border: 2px solid colors.$darkColor;
+      width: 50%;
+    }
+    &-btn {
+      background-color: colors.$contrastColor;
+      padding: 0.5rem 1rem;
+      @include mixins.flex(row, nowrap, center, center);
+      border: 2px solid colors.$darkColor;
+      border-radius: 0 1rem 1rem 0;
+      border-left: transparent;
+      &:active {
+        background-color: colors.$darkColor;
+        color: colors.$whiteColor-light;
+      }
+    }
+  }
+  /*nav div*/
+  &-nav {
+    @include mixins.flex(row, nowrap, null, end);
+    font-size: fonts.$fontNormal-little;
+  }
+  &-ul {
+    @include mixins.flex(row, nowrap, null, null);
+    padding: 0 3rem;
+  }
+  &-li {
+    margin: 0.5rem;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 3px;
+      background-color: colors.$mainColor-dark;
+      transform: scale(0, 1);
+      transform-origin: left;
+      transition: transform 0.25s;
+    }
+
+    &:hover::after {
+      transform: scale(1, 1);
+    }
+  }
+  /*whatsapp btn*/
+  &-wp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: fonts.$fontLarge;
+    cursor: pointer;
+    padding: 0.2rem;
+    background-color: aliceblue;
+    color: #25d366;
+    border: none;
+    border-radius: 100%;
+    opacity: 0.8;
+    transform: scale(1);
+    transition: transform 0.25s;
+    
+    &:hover {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+  }
 }
+
 a.active {
-  box-shadow: 0 3px 0 0 var(--mainColor-dark);
-}
-/*whatsapp btn*/
-.navmenu-wp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: var(--fontLarge);
-  cursor: pointer;
-  padding: .2rem;
-  background-color: aliceblue;
-  color: #25D366;
-  border: none;
-  border-radius: 100%;
-  opacity: .8;
-  transform: scale(1);
-  transition: transform 0.25s;
-
-}.navmenu-wp:hover{
-    opacity: 1;
-    transform: scale(1.5);
+  box-shadow: 0 3px 0 0 colors.$mainColor-dark;
 }

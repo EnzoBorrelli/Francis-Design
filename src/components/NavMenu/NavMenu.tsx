@@ -6,22 +6,22 @@ import {RiWhatsappFill} from "react-icons/ri"
 import {BsBookHalf} from "react-icons/bs"
 import {FaShoppingBag} from "react-icons/fa"
 
-import logo from "/logo.png"
+import logo from "../../assets/images/logo.png"
 
 const NavMenu = () => {
   return (
     <header className="navmenu">
       {/* brand divisor*/}
-      <div className="navmenu-div--brand">
-        <div className="brand-logo">
+      <div className="navmenu-brand">
+        <div className="navmenu-brand-logo">
           <img src={logo} alt="logo" />
         </div>
-        <h1 className="brand-name">FrancisDesign</h1>
+        <h1 className="navmenu-brand-name">FrancisDesign</h1>
       </div>
       {/*searchbar divisor */}
       <div className="navmenu-searchbar">
-        <input type="text" placeholder="buscar..." className="searchbar-input" />
-        <button className="searchbar-btn"><CgSearch/></button>
+        <input type="text" placeholder="buscar..." className="navmenu-searchbar-input" />
+        <button className="navmenu-searchbar-btn"><CgSearch/></button>
       </div>
       {/*navbar divisor */}
       <nav className="navmenu-nav">
